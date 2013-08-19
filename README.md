@@ -35,7 +35,7 @@ Job data
 Jobs inserted into the curler queue must contain two properties:
 
  * `method` - Relative path of the URL to hit.
- * `headers` - A json object of HTTP headers to use for the request.  Defaults to `{'Content-Type': 'application/x-www-form-urlencoded'}`.
+ * `headers` - A JSON object of HTTP headers to use for the request.  Defaults to `{'Content-Type': 'application/x-www-form-urlencoded'}`.
  * `data` - Arbitrary data string. POSTed as the `data` property. Use JSON if you need structure.
 
 Dependencies
