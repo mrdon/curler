@@ -2,6 +2,7 @@ dropin.cache
 *.pid
 *.log
 *.pyc
+*.iml
 MANIFEST
 dist/
 build/

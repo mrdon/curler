@@ -95,6 +95,12 @@ class CurlerClient(client.GearmanProtocol):
             defer.returnValue({"error":
                                "Missing \"data\" property in job data"})
 
+        # allow header customization
+        if 'headers' not in job_data:
+            headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+        else:
+            headers = job_data['headers']
+
         # we'll post the data as JSON, so convert it back
         data = json.dumps(job_data['data'])
 
@@ -107,7 +113,6 @@ class CurlerClient(client.GearmanProtocol):
             postdata = urllib.urlencode({
                 "job_handle": handle,
                 "data": data})
-            headers = {'Content-Type': 'application/x-www-form-urlencoded'}
             try:
                 # despite our name, we're not actually using curl :)
                 response = yield getPage(url, method='POST', postdata=postdata,
